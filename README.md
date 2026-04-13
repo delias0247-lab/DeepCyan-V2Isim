@@ -2,13 +2,13 @@
 
 A multi-model **traffic signal control and simulation platform** built with **SUMO**, **TraCI**, **Python**, and **FastAPI**. The project supports **fixed-time**, **Q-learning**, and **Deep Q-learning (DQN)** traffic signal control strategies across multiple map scenarios, with a web dashboard for starting simulations, monitoring runs, and viewing results.
 
-This README combines the current dashboard workflow with the reinforcement-learning setup described in the earlier project notes. It is intended to serve as the main repository README for your project. fileciteturn0file0L1-L12 fileciteturn0file1L1-L10
+This README combines the current dashboard workflow with the reinforcement-learning setup described in the earlier project notes. It is intended to serve as the main repository README for your project.
 
 ---
 
 ## Project Overview
 
-This project is designed for **vehicle-to-infrastructure (V2I) traffic signal control research and experimentation**. It uses SUMO-based road network simulations and controls multiple signalized junctions through Python scripts connected with TraCI. On top of that, a **FastAPI dashboard** provides a user-friendly interface to launch models, monitor runs, and inspect outputs. fileciteturn0file0L1-L12 fileciteturn0file1L1-L10
+This project is designed for **vehicle-to-infrastructure (V2I) traffic signal control research and experimentation**. It uses SUMO-based road network simulations and controls multiple signalized junctions through Python scripts connected with TraCI. On top of that, a **FastAPI dashboard** provides a user-friendly interface to launch models, monitor runs, and inspect outputs.
 
 The system currently supports three traffic-control approaches:
 
@@ -16,7 +16,8 @@ The system currently supports three traffic-control approaches:
 - **Q-Learning model** (`traci6.QL.py`)
 - **Deep Q-Learning model** (`traci7.DQL.py`)
 
-These models can be run on different map scenarios such as `Map1` to `Map5`, depending on the files and configuration available in each folder. fileciteturn0file1L5-L10
+These models can be run on different map scenarios such as `Map1` to `Map5`, depending on the files and configuration available in each folder. 
+
 
 ---
 
@@ -32,7 +33,8 @@ These models can be run on different map scenarios such as `Map1` to `Map5`, dep
 - Queue-based reward tracking and cumulative reward visualization
 - Per-run output storage under an `outputs/` directory
 
-These capabilities are reflected across the two source READMEs, including dashboard execution, map-based model selection, and RL-based queue monitoring. fileciteturn0file0L13-L20 fileciteturn0file1L23-L35
+These capabilities are reflected across the two source READMEs, including dashboard execution, map-based model selection, and RL-based queue monitoring.
+
 
 ---
 
@@ -61,7 +63,7 @@ project-root/
 └── README.md
 ```
 
-The uploaded READMEs describe `backend/`, `Map1` to `Map5`, and `outputs/` as the main working areas, and also note that map folders contain model scripts and SUMO scenario files. fileciteturn0file0L21-L32 fileciteturn0file1L5-L10
+The uploaded READMEs describe `backend/`, `Map1` to `Map5`, and `outputs/` as the main working areas, and also note that map folders contain model scripts and SUMO scenario files.
 
 ---
 
@@ -73,17 +75,17 @@ The uploaded READMEs describe `backend/`, `Map1` to `Map5`, and `outputs/` as th
 
 ### 2. Q-Learning Control
 
-`traci6.QL.py` uses a tabular Q-learning approach to observe traffic conditions, choose actions with an epsilon-greedy strategy, and update a Q-table during simulation. The earlier README explains the Q-learning design in terms of state, action, and reward based on queue lengths and current signal phases. fileciteturn0file0L70-L114
+`traci6.QL.py` uses a tabular Q-learning approach to observe traffic conditions, choose actions with an epsilon-greedy strategy, and update a Q-table during simulation. The earlier README explains the Q-learning design in terms of state, action, and reward based on queue lengths and current signal phases.
 
 ### 3. Deep Q-Learning Control
 
-`traci7.DQL.py` extends the approach by using a neural network instead of only a Q-table. This model typically requires extra dependencies such as TensorFlow, which is why the dashboard README separates its installation requirements. fileciteturn0file1L17-L22
+`traci7.DQL.py` extends the approach by using a neural network instead of only a Q-table. This model typically requires extra dependencies such as TensorFlow, which is why the dashboard README separates its installation requirements. 
 
 ---
 
 ## Simulation and Control Concept
 
-The project focuses on **multi-junction traffic signal control**. In the earlier project notes, the Q-learning setup controlled four traffic-light nodes together and used lane-area detector feedback from eastbound and southbound approaches to estimate congestion. The reward function was based on the total queue length, encouraging the controller to reduce congestion across the network. fileciteturn0file0L5-L12 fileciteturn0file0L54-L114
+The project focuses on **multi-junction traffic signal control**. In the earlier project notes, the Q-learning setup controlled four traffic-light nodes together and used lane-area detector feedback from eastbound and southbound approaches to estimate congestion. The reward function was based on the total queue length, encouraging the controller to reduce congestion across the network.
 
 Depending on the selected map and script, the same general flow applies:
 
@@ -95,8 +97,7 @@ Depending on the selected map and script, the same general flow applies:
 6. Record results to CSV, logs, and plots
 7. View results from the dashboard
 
-This combines the RL workflow in the first README with the dashboard execution flow in the second. fileciteturn0file0L162-L174 fileciteturn0file1L23-L35
-
+This combines the RL workflow in the first README with the dashboard execution flow in the second.
 ---
 
 ## Dashboard Workflow
@@ -104,18 +105,13 @@ This combines the RL workflow in the first README with the dashboard execution f
 The dashboard is the main interface for running the project. From the project backend directory, the current workflow is:
 
 ```powershell
-cd C:\Users\Edawi\OneDrive\Desktop\work\backend
+cd C:\Path\
 .venv\Scripts\activate
 python -m uvicorn main:app --reload
 ```
 
 Then open:
 
-```text
-http://127.0.0.1:8000/
-```
-
-This startup process is described directly in the dashboard README. fileciteturn0file1L11-L16
 
 ### What the dashboard provides
 
@@ -125,8 +121,6 @@ This startup process is described directly in the dashboard README. filecite�
 - access to generated CSV files and plots
 - graph pages and comparison views
 
-These features are documented in the dashboard README. fileciteturn0file1L23-L35
-
 ---
 
 ## Requirements
@@ -135,10 +129,10 @@ These features are documented in the dashboard README. fileciteturn0file1�
 
 - **Python 3.x**
 - **SUMO 1.25.0** or a compatible SUMO installation
+- **Netedit ** or a compatible Netedit installation
 - **FastAPI / Uvicorn** for the dashboard
 - **TraCI** through the SUMO tools path
 
-The earlier README explicitly lists Python, SUMO 1.25.0, NumPy, and Matplotlib, while the dashboard README adds repository-level requirements files and optional DQN dependencies. fileciteturn0file0L115-L137 fileciteturn0file1L17-L22
 
 ### Python packages
 
@@ -153,8 +147,6 @@ For Deep Q-Learning support:
 ```powershell
 pip install -r requirements-dqn.txt
 ```
-
-This split is described in the dashboard README. fileciteturn0file1L17-L22
 
 ---
 
@@ -185,14 +177,11 @@ Typical path used in the project:
 ```text
 C:\Program Files (x86)\Eclipse\Sumo\bin\sumo-gui.exe
 ```
-
-This path appears in the project notes for the SUMO installation. fileciteturn0file0L131-L137
-
 ---
 
 ## Scenario Configuration
 
-Each map folder may contain its own SUMO configuration and route files. In the earlier README, `Map5` is shown using a local route file while still referencing external SUMO network and additional files. That means some scenarios may still depend on machine-specific or external paths and may need editing before they can run correctly on another machine. fileciteturn0file0L21-L52 fileciteturn0file1L29-L31
+Each map folder may contain its own SUMO configuration and route files. In the earlier README, `Map5` is shown using a local route file while still referencing external SUMO network and additional files. That means some scenarios may still depend on machine-specific or external paths and may need editing before they can run correctly on another machine.
 
 Example pattern from the earlier setup:
 
@@ -212,7 +201,6 @@ Before running on a new machine, check:
 - route files
 - machine-specific Windows paths inside Python scripts
 
-This caution is grounded in both READMEs. fileciteturn0file0L33-L52 fileciteturn0file1L29-L31
 
 ---
 
