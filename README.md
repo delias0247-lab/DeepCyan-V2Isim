@@ -323,8 +323,8 @@ The earlier README suggests several next steps that also fit the broader dashboa
 ---
 
 
-# ON STEP 2: HARD PATHS (EDIT ONLY THIS SECTION) Don't forget to change these to your dedicated directory. 
-
+#  Don't forget to change these to your dedicated directory. 
+### ON STEP 2: HARD PATHS (EDIT ONLY THIS SECTION)
 ### -----------------------------
 ### Folder that contains RL.sumocfg (and usually RL.net.xml / RL.rou.xml / RL.add.xml)
 BASE_DIR = Path(r"C:\Users\Edawi\OneDrive\Desktop\work\Map1")
