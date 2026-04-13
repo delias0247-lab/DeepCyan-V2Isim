@@ -12,9 +12,9 @@ This project is designed for **vehicle-to-infrastructure (V2I) traffic signal co
 
 The system currently supports three traffic-control approaches:
 
-- **Fixed-Time model** (`traci5.FT.py`)
-- **Q-Learning model** (`traci6.QL.py`)
-- **Deep Q-Learning model** (`traci7.DQL.py`)
+- **Fixed-Time model** (`FT.py`)
+- **Q-Learning model** (`QL.py`)
+- **Deep Q-Learning model** (`DQL.py`)
 
 These models can be run on different map scenarios such as `Map1` to `Map5`, depending on the files and configuration available in each folder. 
 
