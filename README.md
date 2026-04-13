@@ -71,7 +71,7 @@ The uploaded READMEs describe `backend/`, `Map1` to `Map5`, and `outputs/` as th
 
 ### 1. Fixed-Time Control
 
-`traci5.FT.py` runs a baseline signal-control strategy using constant or fixed-time behavior. This is useful as a reference model for comparison against learning-based methods. fileciteturn0file1L8-L10
+`traci5.FT.py` runs a baseline signal-control strategy using constant or fixed-time behavior. This is useful as a reference model for comparison against learning-based methods. 
 
 ### 2. Q-Learning Control
 
