@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DeepCyan - Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+
+  <!-- ✅ served by FastAPI -->
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+  <div class="dashboard">
+    <!-- SIDEBAR (same on all pages) -->
+    <aside class="sidebar">
+      <div class="logo">
+        <i class="fas fa-car"></i>
+        <span>Deep<span class="highlight">Cyan</span></span>
+      </div>
+
+      <nav class="nav">
+        <ul>
+          <li><a href="/"><i class="fas fa-home"></i> Dashboard</a></li>
+          <li><a href="/simulation"><i class="fas fa-play-circle"></i> Simulation</a></li>
+          
+          <li><a href="/data"><i class="fas fa-table"></i> Data</a></li>
+          <li><a href="/graph"><i class="fas fa-chart-line"></i> Graph</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+      <header class="header">
+        <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+        <div class="search">
+          <i class="fas fa-search"></i>
+          <input type="text" placeholder="Search map or run...">
+        </div>
+        <div class="user-profile">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User">
+          <span>ADMIN@RTA</span>
+        </div>
+      </header>
+
+      <div class="content">
+        <!-- STATS CARDS -->
+        <div class="stats-grid">
+          <div class="card">
+            <div class="card-icon"><i class="fas fa-map"></i></div>
+            <div class="card-info">
+              <h3 id="statTotalMaps">0</h3>
+              <p>Total Maps</p>
+              <span class="trend up" id="statTotalMapsSub">Loading...</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-icon"><i class="fas fa-brain"></i></div>
+            <div class="card-info">
+              <h3 id="statQPerf">-</h3>
+              <p>Latest Q-Learning Run</p>
+              <span class="trend up" id="statQPerfSub">Waiting for a completed traci6 run</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-icon"><i class="fas fa-microchip"></i></div>
+            <div class="card-info">
+              <h3 id="statDQNPerf">-</h3>
+              <p>Latest Deep Q Run</p>
+              <span class="trend up" id="statDQNPerfSub">Waiting for a completed traci7 run</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-icon"><i class="fas fa-circle-info"></i></div>
+            <div class="card-info">
+              <h3 id="statRunStatus">IDLE</h3>
+              <p>Simulation Status</p>
+              <span class="trend down" id="statRunStatusSub">No active model run</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Start Simulation Button -->
+        <div style="display: flex; justify-content: center; margin-bottom: 2rem;">
+          <a href="/simulation" class="btn btn-primary" style="padding: 1rem 3rem; font-size: 1.2rem;">
+            <i class="fas fa-play-circle"></i> Run a Model
+          </a>
+        </div>
+        
+
+        <div class="recent-orders">
+  <h2>Recent Simulation Runs</h2>
+  <div class="table-responsive">
+    <table>
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>Map</th>
+          <th>Run ID</th>
+          <th>Model</th>
+          <th>Files</th>
+          <th>Open</th>
+        </tr>
+      </thead>
+      <tbody id="recentRunsBody">
+        <tr><td colspan="6">Loading...</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+        <div class="recent-orders" style="margin-top: 24px;">
+  <h2>Fixed-Time vs Q-Learning</h2>
+  <div class="table-responsive">
+    <table>
+      <thead>
+        <tr>
+          <th>Map</th>
+          <th>traci5 Avg Queue</th>
+          <th>traci6 Avg Queue</th>
+          <th>Queue Gain</th>
+          <th>Winner</th>
+          <th>Open Runs</th>
+        </tr>
+      </thead>
+      <tbody id="comparisonBody">
+        <tr><td colspan="6">Loading...</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="/static/js/dashboard_models.js"></script>
+</body>
+
+</html>

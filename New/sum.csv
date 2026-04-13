@@ -1,0 +1,2 @@
+scenario,config,run_id,total_steps,final_sim_time,avg_total_queue,max_total_queue,final_vehicle_count
+Map4,RL.sumocfg,run_2026-03-05_100622_RL,104345,104345.0,1.1092337917485264,205.0,0

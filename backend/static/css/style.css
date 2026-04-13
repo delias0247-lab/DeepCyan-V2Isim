@@ -1,0 +1,601 @@
+/* ===== RESET & GLOBAL ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body { background-color: #f6f9fc; }
+
+/* ===== DASHBOARD LAYOUT ===== */
+.dashboard {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 100vh;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+  color: #e2e8f0;
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 2.5rem;
+}
+
+.logo i { color: #38bdf8; }
+.logo .highlight { color: #38bdf8; }
+
+.nav ul { list-style: none; }
+
+.nav li {
+  margin-bottom: 0.5rem;
+  border-radius: 0.5rem;
+  transition: background 0.2s;
+}
+
+.nav li.active { background-color: #334155; }
+.nav li:hover:not(.active) { background-color: #1e293b; }
+
+.nav a {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  color: #cbd5e1;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.nav i { width: 1.5rem; text-align: center; }
+
+/* ===== MAIN CONTENT ===== */
+.main-content {
+  background-color: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* ===== HEADER ===== */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 1.25rem;
+  color: #64748b;
+  cursor: pointer;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  background-color: #f1f5f9;
+  border-radius: 2rem;
+  padding: 0.5rem 1rem;
+  width: 300px;
+}
+
+.search i { color: #94a3b8; margin-right: 0.5rem; }
+
+.search input {
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  font-size: 0.95rem;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.user-profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* ===== CONTENT AREA ===== */
+.content { padding: 2rem; }
+
+/* ===== STATS CARDS ===== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.card {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+}
+
+.card-icon {
+  background-color: #e0f2fe;
+  color: #0284c7;
+  width: 60px;
+  height: 60px;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+}
+
+.card-info h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 0.25rem;
+}
+
+.card-info p {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.trend {
+  font-size: 0.8rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.trend.up { color: #10b981; }
+.trend.down { color: #ef4444; }
+
+/* ===== CHART ===== */
+.chart-container {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+  height: 350px;
+}
+
+/* ===== TABLE ===== */
+.recent-orders {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+}
+
+.recent-orders h2 {
+  font-size: 1.25rem;
+  color: #0f172a;
+  margin-bottom: 1.25rem;
+  font-weight: 600;
+}
+
+.table-responsive { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+
+th {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  background-color: #f8fafc;
+  color: #475569;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+td {
+  padding: 1rem;
+  border-bottom: 1px solid #e2e8f0;
+  color: #1e293b;
+}
+
+.status {
+  padding: 0.35rem 0.75rem;
+  border-radius: 2rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.status.toll-pass { background-color: #dcfce7; color: #166534; }
+.status.speeding  { background-color: #fef9c3; color: #854d0e; }
+.status.accident  { background-color: #dbeafe; color: #1e40af; }
+.status.breakdown { background-color: #fee2e2; color: #991b1b; }
+
+/* ===== SIMULATION CONTROLS ===== */
+.simulation-panel {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+  margin-bottom: 2rem;
+}
+
+.simulation-panel h2 {
+  font-size: 1.25rem;
+  color: #0f172a;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.map-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.map-card {
+  background: #f8fafc;
+  border-radius: 1rem;
+  padding: 1.25rem;
+  border: 1px solid #e2e8f0;
+}
+
+.map-card h3 {
+  font-size: 1.1rem;
+  color: #0f172a;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.map-card h3 i { color: #38bdf8; }
+
+.param-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.param-label { color: #475569; font-size: 0.9rem; }
+
+.param-value {
+  font-weight: 600;
+  color: #0f172a;
+  background: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid #e2e8f0;
+}
+
+/* ===== BUTTONS ===== */
+.button-group {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #334155;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+.btn:hover { background: #f1f5f9; border-color: #94a3b8; }
+
+.btn-primary { background: #0f172a; color: white; border-color: #0f172a; }
+.btn-primary:hover { background: #1e293b; }
+.btn-success { background: #10b981; color: white; border-color: #10b981; }
+.btn-success:hover { background: #059669; }
+.btn-warning { background: #f59e0b; color: white; border-color: #f59e0b; }
+.btn-warning:hover { background: #d97706; }
+.btn-danger { background: #ef4444; color: white; border-color: #ef4444; }
+.btn-danger:hover { background: #dc2626; }
+
+.btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* ===== FORM CONTROLS (stable select dropdown) ===== */
+input.param-value,
+select.param-value {
+  font-weight: 600;
+  color: #0f172a;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 999px;
+  padding: 0.35rem 0.9rem;
+  line-height: 1.2;
+  min-height: 36px;
+  outline: none;
+}
+
+/* Keep native dropdown behavior (prevents weird overlay) */
+select.param-value {
+  appearance: auto;
+  -webkit-appearance: menulist;
+  -moz-appearance: menulist;
+  background-image: none !important;
+  padding-right: 0.9rem;
+}
+
+input.param-value:focus,
+select.param-value:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .dashboard { grid-template-columns: 1fr; }
+  .sidebar { display: none; }
+  .menu-toggle { display: block; }
+}
+
+@media (max-width: 768px) {
+  .header { padding: 1rem; }
+  .search { width: 200px; }
+  .stats-grid { grid-template-columns: 1fr; }
+  .chart-container { height: 250px; }
+}
+/* ===== SIMULATION CONTROLS ===== */
+.simulation-panel {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+  margin-bottom: 2rem;
+}
+
+.simulation-panel h2 {
+  font-size: 1.25rem;
+  color: #0f172a;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.map-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.map-card {
+  background: #f8fafc;
+  border-radius: 1rem;
+  padding: 1.25rem;
+  border: 1px solid #e2e8f0;
+}
+
+.map-card h3 {
+  font-size: 1.1rem;
+  color: #0f172a;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.map-card h3 i {
+  color: #38bdf8;
+}
+
+.param-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.param-label {
+  color: #475569;
+  font-size: 0.9rem;
+}
+
+.param-value {
+  font-weight: 600;
+  color: #0f172a;
+  background: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 2rem;
+  border: 1px solid #e2e8f0;
+}
+
+.button-group {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #334155;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  background: #f1f5f9;
+  border-color: #94a3b8;
+}
+
+.btn-primary {
+  background: #0f172a;
+  color: white;
+  border-color: #0f172a;
+}
+
+.btn-primary:hover {
+  background: #1e293b;
+}
+
+.btn-success {
+  background: #10b981;
+  color: white;
+  border-color: #10b981;
+}
+
+.btn-success:hover {
+  background: #059669;
+}
+
+.btn-warning {
+  background: #f59e0b;
+  color: white;
+  border-color: #f59e0b;
+}
+
+.btn-warning:hover {
+  background: #d97706;
+}
+
+.btn-danger {
+  background: #ef4444;
+  color: white;
+  border-color: #ef4444;
+}
+
+.btn-danger:hover {
+  background: #dc2626;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.global-controls {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+/* ===== FORM CONTROLS (fix select/input look) ===== *//* ===== FORM CONTROLS (stable select dropdown) ===== */
+input.param-value,
+select.param-value {
+  font-weight: 600;
+  color: #0f172a;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 999px;
+  padding: 0.35rem 0.9rem;
+  line-height: 1.2;
+  min-height: 36px;
+  outline: none;
+}
+
+/* ✅ IMPORTANT: keep native dropdown behavior (prevents the weird overlay) */
+select.param-value {
+  appearance: auto;
+  -webkit-appearance: menulist;
+  -moz-appearance: menulist;
+  background-image: none !important; /* remove custom arrow */
+  padding-right: 0.9rem;            /* normal padding */
+}
+
+/* Focus glow consistent */
+input.param-value:focus,
+select.param-value:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+}
+
+/* ===== FIX: Native dropdown selects (Graph/Data/Simulation) ===== */
+select.param-value {
+  appearance: auto !important;
+  -webkit-appearance: menulist !important;
+  -moz-appearance: menulist !important;
+
+  /* normal select shape (not pill) */
+  border-radius: 10px !important;
+
+  /* bigger click area */
+  height: 42px !important;
+  min-height: 42px !important;
+  padding: 0.45rem 0.9rem !important;
+
+  /* allow arrow to show properly */
+  background-image: none !important;
+
+  /* prevent weird overlay/position issues */
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+}
+
+/* also make sure the wrapper doesn't clip the dropdown */
+.map-card,
+.content,
+.main-content {
+  overflow: visible !important;
+}
+
+/* optional: make the row not squash the select */
+.param-row {
+  gap: 14px;
+}
+
+/* ===== Graph page: make selects behave like normal dropdowns ===== */
+select.param-value {
+  appearance: auto !important;
+  -webkit-appearance: menulist !important;
+  -moz-appearance: menulist !important;
+  background-image: none !important;
+  border-radius: 999px; /* keep your pill look like Simulation */
+  cursor: pointer;
+}

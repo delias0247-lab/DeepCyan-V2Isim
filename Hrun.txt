@@ -1,0 +1,20 @@
+map
+cd C:\Program Files (x86)\Eclipse\Sumo\tools
+
+
+location (EXAMPLE)
+cd C:\Users\ELIAS\Desktop\work\backend
+
+
+cd C:\Users\ELIAS\Desktop\work\backend
+.venv\Scripts\activate
+python -m uvicorn main:app --reload
+
+
+
+
+
+
+# Open:
+#   http://127.0.0.1:8000/ui
+#   http://127.0.0.1:8000/docs

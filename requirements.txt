@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+jinja2
+pandas
+numpy
+matplotlib
+traci
+
+# Install a TensorFlow build that matches your Python version and platform.
+tensorflow

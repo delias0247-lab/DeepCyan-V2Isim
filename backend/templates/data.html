@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DeepCyan · Data</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <div class="dashboard">
+
+    <aside class="sidebar">
+      <div class="logo">
+        <i class="fas fa-car"></i>
+        <span>Deep<span class="highlight">Cyan</span></span>
+      </div>
+
+      <nav class="nav">
+        <ul>
+          <li><a href="/"><i class="fas fa-home"></i> Dashboard</a></li>
+          <li><a href="/simulation"><i class="fas fa-play-circle"></i> Simulation</a></li>
+          
+          <li class="active"><a href="/data"><i class="fas fa-table"></i> Data</a></li>
+          <li><a href="/graph"><i class="fas fa-chart-line"></i> Graph</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <header class="header">
+        <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+        <div class="search">
+          <i class="fas fa-search"></i>
+          <input type="text" placeholder="Search runs / files...">
+        </div>
+        <div class="user-profile">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User">
+          <span>ADMIN@RTA</span>
+        </div>
+      </header>
+
+      <div class="content">
+        <h2 style="margin-bottom: 16px;"><i class="fas fa-database"></i> Simulation Data (CSV)</h2>
+
+        <div class="map-card">
+          <h3><i class="fas fa-map"></i> Select Map & Run</h3>
+          
+        <div class="param-row">
+          <span class="param-label">Map</span>
+            <select id="dataMapSelect" class="param-value" style="width: 180px;"></select>
+        </div>
+
+        <div class="param-row">
+          <span class="param-label">Run</span>
+          <select id="dataRunSelect" class="param-value" style="width: 180px;"></select>
+        </div>
+
+          <div style="margin-top: 12px;">
+            <a class="btn" id="openRunFolderBtn" href="#" target="_blank" style="display:none;">
+              <i class="fas fa-folder-open"></i> Open Run Folder
+            </a>
+          </div>
+        </div>
+
+        <div class="map-card" style="margin-top: 16px;">
+          <h3><i class="fas fa-file-csv"></i> CSV Files</h3>
+          <div id="csvFilesBox" style="margin-top: 10px;">Loading…</div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="/static/js/dashboard_models.js"></script>
+</body>
+</html>

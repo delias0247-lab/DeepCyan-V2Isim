@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DeepCyan - Simulation</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <div class="dashboard">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="logo">
+        <i class="fas fa-car"></i>
+        <span>Deep<span class="highlight">Cyan</span></span>
+      </div>
+
+      <nav class="nav">
+        <ul>
+          <li><a href="/"><i class="fas fa-home"></i> Dashboard</a></li>
+          <li><a href="/simulation"><i class="fas fa-play-circle"></i> Simulation</a></li>
+          
+          <li><a href="/data"><i class="fas fa-table"></i> Data</a></li>
+          <li><a href="/graph"><i class="fas fa-chart-line"></i> Graph</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main-content">
+      <header class="header">
+        <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+        <div class="search">
+          <i class="fas fa-search"></i>
+          <input type="text" placeholder="Search map or model...">
+        </div>
+        <div class="user-profile">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User">
+          <span>ADMIN@RTA</span>
+        </div>
+      </header>
+
+      <div class="content">
+
+        <div class="simulation-panel">
+          <h2><i class="fas fa-play-circle"></i> Simulation Controls</h2>
+
+          <div class="map-controls">
+
+            <div class="map-card">
+              <h3><i class="fas fa-map"></i> Scenario</h3>
+
+              <div class="param-row">
+                <span class="param-label">Scenario</span>
+                <select id="scenarioSelect" class="param-value" style="width: 180px;"></select>
+              </div>
+
+              <div class="param-row">
+                <span class="param-label">Model</span>
+                <select id="modelSelect" class="param-value" style="width: 220px;"></select>
+              </div>
+
+              <div class="param-row">
+                <span class="param-label">Run mode</span>
+                <select id="guiSelect" class="param-value" style="width: 180px;">
+                  <option value="true">GUI</option>
+                  <option value="false">Headless</option>
+                </select>
+              </div>
+
+              <div class="button-group">
+                <button class="btn btn-success" id="btnStart"><i class="fas fa-play"></i> Start</button>
+                <button class="btn btn-danger" id="btnStop"><i class="fas fa-stop"></i> Stop</button>
+              </div>
+
+              <div style="margin-top: 12px;">
+                <a class="btn" href="/outputs/" target="_blank"><i class="fas fa-folder-open"></i> Open Outputs</a>
+                <a class="btn" id="lastRunLink" href="#" target="_blank" style="display:none;">
+                  <i class="fas fa-link"></i> Open Last Run
+                </a>
+              </div>
+            </div>
+
+            <div class="map-card">
+              <h3><i class="fas fa-gauge-high"></i> Simulation Speed</h3>
+
+              <div class="param-row">
+                <span class="param-label">Delay (sec)</span>
+                <input id="delayInput" type="number" min="0" max="10" step="0.01" value="0.10" class="param-value" style="width:120px;">
+              </div>
+
+              <div class="param-row">
+                <span class="param-label">Change by</span>
+                <input id="speedStepInput" type="number" min="0.01" max="5" step="0.01" value="0.25" class="param-value" style="width:120px;">
+              </div>
+
+              <div class="param-row">
+                <span class="param-label">Live delay</span>
+                <span class="param-value" id="delayVal">0.10</span>
+              </div>
+
+              <input id="delaySlider" type="range" min="0" max="10" step="0.01" value="0.10" style="width:100%; margin: 10px 0;">
+
+              <div class="button-group">
+                <button class="btn" id="btnFaster"><i class="fas fa-bolt"></i> Faster</button>
+                <button class="btn" id="btnSlower"><i class="fas fa-hourglass-half"></i> Slower</button>
+                <button class="btn btn-primary" id="btnSetSpeed"><i class="fas fa-check"></i> Apply</button>
+              </div>
+
+              <p style="margin-top:10px; color:#64748b; font-size:0.9rem;">
+                <b>Tip:</b> Lower delay means faster simulation updates. You can now type an exact value up to 10.00 seconds.
+              </p>
+            </div>
+
+            <div class="map-card">
+              <h3><i class="fas fa-car-side"></i> Vehicle Control</h3>
+
+              <div class="param-row">
+                <span class="param-label">Current vehicles</span>
+                <span class="param-value" id="vehicleCurrentVal">-</span>
+              </div>
+
+              <div class="param-row">
+                <span class="param-label">Target count</span>
+                <input id="vehicleTargetInput" type="number" min="0" value="0" class="param-value" style="width:120px;">
+              </div>
+
+              <div class="param-row">
+                <span class="param-label">Change by</span>
+                <input id="vehicleStepInput" type="number" min="1" value="5" class="param-value" style="width:120px;">
+              </div>
+
+              <div class="button-group">
+                <button class="btn btn-success" id="btnAddVeh"><i class="fas fa-plus"></i> Add</button>
+                <button class="btn btn-danger" id="btnRemVeh"><i class="fas fa-minus"></i> Remove</button>
+                <button class="btn btn-primary" id="btnSetVeh"><i class="fas fa-check"></i> Apply</button>
+              </div>
+
+              <p style="margin-top:10px; color:#64748b; font-size:0.9rem;">
+                <b>Tip:</b> Use <b>Apply</b> to move toward an exact vehicle count. Add and Remove use the editable change value.
+              </p>
+            </div>
+
+            <div class="map-card">
+              <h3><i class="fas fa-chart-line"></i> Live Performance</h3>
+
+              <div style="display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:10px;">
+                <div style="background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:12px;">
+                  <div style="color:#64748b; font-size:0.85rem;">Run State</div>
+                  <div id="perfState" style="font-weight:700; color:#0f172a; margin-top:4px;">IDLE</div>
+                </div>
+                <div style="background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:12px;">
+                  <div style="color:#64748b; font-size:0.85rem;">Steps</div>
+                  <div id="perfSteps" style="font-weight:700; color:#0f172a; margin-top:4px;">0</div>
+                </div>
+                <div style="background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:12px;">
+                  <div style="color:#64748b; font-size:0.85rem;">Vehicle Count</div>
+                  <div id="perfVehicles" style="font-weight:700; color:#0f172a; margin-top:4px;">-</div>
+                </div>
+                <div style="background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:12px;">
+                  <div style="color:#64748b; font-size:0.85rem;">Total Queue</div>
+                  <div id="perfQueue" style="font-weight:700; color:#0f172a; margin-top:4px;">-</div>
+                </div>
+                <div style="background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:12px;">
+                  <div style="color:#64748b; font-size:0.85rem;">Latest Reward</div>
+                  <div id="perfReward" style="font-weight:700; color:#0f172a; margin-top:4px;">-</div>
+                </div>
+                <div style="background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:12px;">
+                  <div style="color:#64748b; font-size:0.85rem;">Cumulative Reward</div>
+                  <div id="perfCumReward" style="font-weight:700; color:#0f172a; margin-top:4px;">-</div>
+                </div>
+                <div style="background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:12px;">
+                  <div style="color:#64748b; font-size:0.85rem;">Average Queue</div>
+                  <div id="perfAvgQueue" style="font-weight:700; color:#0f172a; margin-top:4px;">-</div>
+                </div>
+                <div style="background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:12px;">
+                  <div style="color:#64748b; font-size:0.85rem;">Last Control</div>
+                  <div id="perfControl" style="font-weight:700; color:#0f172a; margin-top:4px;">-</div>
+                </div>
+              </div>
+
+              <pre id="statusBox" style="height:120px; overflow:auto; background:#fff; border-radius:12px; padding:12px; border:1px solid #e2e8f0; margin-top:12px;"></pre>
+              <div class="button-group">
+                <button class="btn" id="btnRefreshStatus"><i class="fas fa-rotate"></i> Refresh</button>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="map-card" style="margin-top: 1.5rem;">
+            <h3><i class="fas fa-triangle-exclamation"></i> SUMO Warnings (Live)</h3>
+            <pre id="warningsBox" style="height:240px; overflow:auto; background:#0b1220; color:#e2e8f0; border-radius:12px; padding:12px;"></pre>
+          </div>
+
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="/static/js/dashboard_models.js"></script>
+</body>
+</html>

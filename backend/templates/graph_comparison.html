@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DeepCyan - Comparison Graphs</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+  <div class="dashboard">
+
+    <aside class="sidebar">
+      <div class="logo">
+        <i class="fas fa-car"></i>
+        <span>Deep<span class="highlight">Cyan</span></span>
+      </div>
+
+      <nav class="nav">
+        <ul>
+          <li><a href="/"><i class="fas fa-home"></i> Dashboard</a></li>
+          <li><a href="/simulation"><i class="fas fa-play-circle"></i> Simulation</a></li>
+          <li><a href="/data"><i class="fas fa-table"></i> Data</a></li>
+          <li><a href="/graph"><i class="fas fa-chart-line"></i> Graph</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <header class="header">
+        <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+        <div class="search">
+          <i class="fas fa-search"></i>
+          <input type="text" placeholder="Compare traci5 and traci6 runs">
+        </div>
+        <div class="user-profile">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User">
+          <span>ADMIN@RTA</span>
+        </div>
+      </header>
+
+      <div class="content">
+        <div class="simulation-panel">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;">
+            <h2><i class="fas fa-chart-line"></i> traci5 vs traci6 Comparison Graphs</h2>
+            <a class="btn" href="/graph"><i class="fas fa-arrow-left"></i> Back to Run Graphs</a>
+          </div>
+
+          <div class="map-card" style="margin-top: 1rem;">
+            <h3><i class="fas fa-scale-balanced"></i> Latest Completed Pair Per Map</h3>
+            <p style="margin-top:10px; color:#64748b; font-size:0.95rem;">
+              This page compares the latest completed <b>traci5</b> and <b>traci6</b> dashboard runs for each map.
+              Each section shows cumulative reward and total queue overlays.
+            </p>
+          </div>
+
+          <div id="comparisonGraphsBox" style="display:flex;flex-direction:column;gap:18px;margin-top:18px;">
+            <div class="map-card"><b>Loading comparison graphs...</b></div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="/static/js/dashboard_models.js"></script>
+</body>
+</html>
