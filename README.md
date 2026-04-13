@@ -323,13 +323,13 @@ The earlier README suggests several next steps that also fit the broader dashboa
 ---
 
 
-## ON STEP 2: HARD PATHS (EDIT ONLY THIS SECTION) Don't forget to change these to your dedicated directory. 
+# ON STEP 2: HARD PATHS (EDIT ONLY THIS SECTION) Don't forget to change these to your dedicated directory. 
 
-# -----------------------------
-# Folder that contains RL.sumocfg (and usually RL.net.xml / RL.rou.xml / RL.add.xml)
+### -----------------------------
+### Folder that contains RL.sumocfg (and usually RL.net.xml / RL.rou.xml / RL.add.xml)
 BASE_DIR = Path(r"C:\Users\Edawi\OneDrive\Desktop\work\Map1")
 Don't forget to change these to your dedicated directory. 
-# SUMO executables
+### SUMO executables
 SUMO_BIN = Path(r"C:\Program Files (x86)\Eclipse\Sumo\bin")
 SUMO_GUI_EXE = SUMO_BIN / "sumo-gui.exe"   # use sumo.exe if you don't want GUI
 
