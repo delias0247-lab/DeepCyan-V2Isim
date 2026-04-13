@@ -267,8 +267,6 @@ Simulation outputs are stored under the `outputs/` directory. Based on the uploa
 - cumulative reward graphs
 - comparison graphs
 
-The dashboard README explicitly identifies `outputs/` as the generated results directory, while the earlier README explains cumulative reward and per-node queue graphs. fileciteturn0file1L5-L10 fileciteturn0file1L23-L35 fileciteturn0file0L175-L186
-
 ---
 
 ## Common Issues
@@ -312,19 +310,6 @@ These troubleshooting points are directly summarized from the earlier README. �
 
 ---
 
-## Publishing to GitHub
-
-The dashboard README notes that the project already includes the usual repository files such as `.gitignore`, `README.md`, `requirements.txt`, and `requirements-dqn.txt`, and gives a basic Git initialization flow. fileciteturn0file1L36-L47
-
-Example:
-
-```powershell
-git init
-git add .
-git commit -m "Initial project import"
-```
-
----
 
 ## Future Improvements
 
@@ -338,8 +323,6 @@ The earlier README suggests several next steps that also fit the broader dashboa
 - stronger portability by removing machine-specific paths
 - better support for DQN environments and reproducible setup
 
-These improvements are based on the two uploaded READMEs. fileciteturn0file0L237-L246 fileciteturn0file1L29-L31
-
 ---
 
 ## Notes
@@ -349,10 +332,6 @@ These improvements are based on the two uploaded READMEs. fileciteturn0fil
 - The dashboard is the recommended way to run and compare models.
 - DQN may require a separate Python environment depending on your TensorFlow setup.
 
-These notes are explicitly supported by the uploaded dashboard README and the earlier configuration notes. fileciteturn0file1L29-L31 fileciteturn0file1L48-L50 fileciteturn0file0L33-L52
 
 ---
 
-## Acknowledgment
-
-This README was created by combining the two uploaded project READMEs and reshaping them into one cleaner, repository-level document tailored to the current SUMO dashboard project. fileciteturn0file0L1-L12 fileciteturn0file1L1-L10
