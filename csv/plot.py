@@ -2,7 +2,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # 🔹 Put your FULL file path here (Windows format)
-file_path = r"C:\Users\Edawi\OneDrive\Desktop\work\New"
+# file_path = r"C:\Users\Edawi\OneDrive\Desktop\work\csv\time.csv"
+file_path = r"C:\Users\Edawi\OneDrive\Desktop\work\outputs\Map3\run_2026-04-02_120802_RL\timeseries.csv"
 
 # Load CSV
 df = pd.read_csv(file_path)
