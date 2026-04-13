@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepCyan | Autonomous Traffic Management Platform</title>
+    <style>
+        /* CSS Variables for Theming */
+        :root {
+            --bg-dark: #0b0f19;
+            --bg-card: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-blue: #0ea5e9;
+            --accent-green: #10b981;
+            --font-stack: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        /* Reset & Base Styles */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-stack); background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        
+        /* Layout & Container */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        section { padding: 6rem 0; scroll-margin-top: 80px; }
+        
+        /* Typography */
+        h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 1.5rem; }
+        h2 { font-size: 2.5rem; margin-bottom: 1rem; color: var(--text-main); }
+        h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--accent-blue); }
+        p { color: var(--text-muted); font-size: 1.125rem; margin-bottom: 1.5rem; }
+        .highlight { color: var(--accent-blue); }
+
+        /* Navigation */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2rem; background: rgba(11, 15, 25, 0.9); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(10px); border-bottom: 1px solid #1e293b; }
+        .logo { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.5px; }
+        .logo span { color: var(--accent-blue); }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a:hover { color: var(--accent-blue); transition: 0.3s; }
+
+        /* Buttons */
+        .btn { display: inline-block; padding: 0.875rem 2rem; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; }
+        .btn-primary { background-color: var(--accent-blue); color: #fff; box-shadow: 0 4px 14px 0 rgba(14, 165, 233, 0.39); }
+        .btn-primary:hover { background-color: #0284c7; transform: translateY(-2px); }
+        .btn-secondary { background-color: transparent; border: 1px solid var(--text-muted); color: var(--text-main); margin-left: 1rem; }
+        .btn-secondary:hover { border-color: var(--text-main); }
+
+        /* Hero Section */
+        .hero { text-align: center; padding: 8rem 0 6rem; background: radial-gradient(circle at top, #1e293b 0%, #0b0f19 50%); }
+        .hero p { max-width: 700px; margin: 0 auto 2.5rem; }
+
+        /* Grid Layouts */
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        
+        /* Cards */
+        .card { background: var(--bg-card); padding: 2.5rem; border-radius: 12px; border: 1px solid #334155; transition: transform 0.3s ease; }
+        .card:hover { transform: translateY(-5px); border-color: var(--accent-blue); }
+        .card-icon { font-size: 2.5rem; margin-bottom: 1.5rem; }
+
+        /* Stats Section */
+        .stats-section { background-color: var(--bg-card); border-top: 1px solid #334155; border-bottom: 1px solid #334155; }
+        .stat-box { text-align: center; }
+        .stat-number { font-size: 4rem; font-weight: 700; color: var(--accent-green); line-height: 1; margin-bottom: 0.5rem;}
+
+        /* Footer */
+        footer { padding: 3rem 0; text-align: center; border-top: 1px solid #1e293b; color: var(--text-muted); }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">DeepCyan<span>V2X</span></div>
+        <ul class="nav-links">
+            <li><a href="#problem">The Problem</a></li>
+            <li><a href="#solution">How It Works</a></li>
+            <li><a href="#proof">The Proof</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#team">Team</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Predicting the Future of <br><span class="highlight">Connected Traffic.</span></h1>
+            <p>Introducing V2ISim: A web-based, AI-powered vehicle-to-infrastructure (V2I) simulation platform. We integrate high-fidelity traffic models with Reinforcement Learning to predict congestion, avoid collisions, and test the cities of tomorrow without the cost of physical hardware.</p>
+        </div>
+    </section>
+
+    <section id="problem" class="container">
+        <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+            <h2>Legacy infrastructure is costing your city millions.</h2>
+            <p>Today, 99% of global intersections rely on 50-year-old "blind timer" technology or simple magnetic loops. They cannot see the whole picture.</p>
+        </div>
+        <div class="grid-3">
+            <div class="card">
+                <div class="card-icon">⏱️</div>
+                <h3>Wasted Time</h3>
+                <p>Commuters spend hundreds of hours a year idling at empty cross streets due to static, unoptimized light phases.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">☁️</div>
+                <h3>Excess Emissions</h3>
+                <p>Unnecessary stopping and starting is a leading cause of urban CO2 emissions and poor local air quality.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🚗</div>
+                <h3>Blind to the Future</h3>
+                <p>Legacy lights cannot communicate with the next generation of connected (V2X) and autonomous vehicles.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="solution" style="background-color: var(--bg-card);">
+        <div class="container">
+            <h2>The V2ISim Architecture.</h2>
+            <p style="max-width: 700px;">Our platform bridges the gap between mobility simulation and artificial intelligence, creating a seamless, containerized virtual testing environment.</p>
+            
+            <div class="grid-3">
+                <div class="card" style="background: var(--bg-dark);">
+                    <h3 style="color: var(--accent-green);">1. Mobility & Network Simulation</h3>
+                    <p>We utilize <strong>SUMO</strong> (Simulation of Urban Mobility) and <strong>Netedit</strong> to create realistic, multi-junction urban environments, synchronizing vehicle movements and simulated V2X network communications in real-time.</p>
+                </div>
+                <div class="card" style="background: var(--bg-dark);">
+                    <h3 style="color: var(--accent-green);">2. The TraCI Orchestrator</h3>
+                    <p>A custom Python backend uses the <strong>TraCI protocol</strong> as the central nervous system, extracting live telemetry (speed, queues, latency) from the simulation and feeding it instantly to our predictive models.</p>
+                </div>
+                <div class="card" style="background: var(--bg-dark);">
+                    <h3 style="color: var(--accent-green);">3. AI Data Interpreter</h3>
+                    <p>Powered by <strong>Q-Learning</strong> and <strong>Deep Q-Learning</strong>, our AI continuously evaluates the state vector to output collision probabilities and suggest dynamic traffic signal interventions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="proof" class="stats-section">
+        <div class="container">
+            <h2 style="text-align: center;">Validating the Future in High-Fidelity.</h2>
+            <p style="text-align: center; margin-bottom: 4rem;">Built on our own custom framework, our RL agent has been stress-tested across numerous traffic scenarios.</p>
+            
+            <div class="grid-3">
+                <div class="stat-box">
+                    <div class="stat-number">-35%</div>
+                    <h3>Average Wait Time</h3>
+                    <p>Compared to actuated timer systems.</p>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">+20%</div>
+                    <h3>Intersection Throughput</h3>
+                    <p>During peak rush hour conditions.</p>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">&lt;10ms</div>
+                    <h3>Decision Latency</h3>
+                    <p>Using localized Edge computing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="container">
+        <h2>Interactive Web Dashboard. <br><span class="highlight">Actionable Insights.</span></h2>
+        <p style="max-width: 800px;">V2ISim provides researchers and operators with a powerful ReactJS interface to configure scenarios, monitor live traffic, and analyze post-run performance metrics.</p>
+        
+        <div class="grid-3">
+            <div class="card">
+                <h3>Live Visualizations</h3>
+                <p>Watch simulations unfold in real-time. Our canvas displays live vehicle movements, active traffic flow corridors, and immediate UI warnings for predicted collisions or severe congestion.</p>
+            </div>
+            <div class="card">
+                <h3>Dynamic Scenario Control</h3>
+                <p>Users can easily adjust parameters mid-simulation. Speed up or slow down execution, dynamically add or remove vehicles, and toggle between different Reinforcement Learning models on the fly.</p>
+            </div>
+            <div class="card">
+                <h3>Post-Run Analytics</h3>
+                <p>Every simulation run logs high-fidelity time-series data. Export metrics like total queue length, cumulative AI reward, and junction throughput to CSV/JSON, or view them directly on our interactive charts.</p>
+            </div>
+        </div>
+    </section>
+
+<section id="team" style="background-color: var(--bg-card); border-top: 1px solid #334155;">
+        <div class="container">
+            <h2 style="text-align: center;">The Capstone Team Behind DeepCyan</h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto;">Developed by a dedicated team of Computer Science seniors at the University of Wollongong in Dubai, building the future of autonomous infrastructure.</p>
+            
+            <div class="grid-3" style="margin-top: 4rem;">
+                
+                <div class="card" style="text-align: center;">
+                    <div style="width: 80px; height: 80px; border-radius: 50%; background-color: var(--bg-dark); margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 2rem; border: 2px solid var(--accent-blue);">👨‍💻</div>
+                    <h3>Ahmed Hossam Abdelmagyd</h3>
+                    <p class="highlight" style="margin-bottom: 0.5rem; font-weight: 600;">Simulation Scenario Developer</p>
+                    <p style="font-size: 0.95rem;">Responsible for designing and building the complex traffic mobility scenarios using SUMO.</p>
+                </div>
+
+                <div class="card" style="text-align: center;">
+                    <div style="width: 80px; height: 80px; border-radius: 50%; background-color: var(--bg-dark); margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 2rem; border: 2px solid var(--accent-blue);">👨‍💻</div>
+                    <h3>Ahmed Imran</h3>
+                    <p class="highlight" style="margin-bottom: 0.5rem; font-weight: 600;">Simulation Scenario Developer</p>
+                    <p style="font-size: 0.95rem;">Collaborating on the construction and refinement of realistic vehicle flow and traffic simulation environments.</p>
+                </div>
+
+                <div class="card" style="text-align: center;">
+                    <div style="width: 80px; height: 80px; border-radius: 50%; background-color: var(--bg-dark); margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 2rem; border: 2px solid var(--accent-blue);">👩‍💻</div>
+                    <h3>Anam Asim Siddiqui</h3>
+                    <p class="highlight" style="margin-bottom: 0.5rem; font-weight: 600;">Simulation API Dashboard Developer</p>
+                    <p style="font-size: 0.95rem;">Developing the interactive ReactJS dashboard and real-time visualization interfaces.</p>
+                </div>
+
+                <div class="card" style="text-align: center;">
+                    <div style="width: 80px; height: 80px; border-radius: 50%; background-color: var(--bg-dark); margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 2rem; border: 2px solid var(--accent-blue);">👨‍💻</div>
+                    <h3>Elias Dawit Seyoum</h3>
+                    <p class="highlight" style="margin-bottom: 0.5rem; font-weight: 600;">Simulation Integration Engineer</p>
+                    <p style="font-size: 0.95rem;">Managing the TraCI synchronization layer bridging SUMO mobility and Netedit communication networks.</p>
+                </div>
+
+                <div class="card" style="text-align: center;">
+                    <div style="width: 80px; height: 80px; border-radius: 50%; background-color: var(--bg-dark); margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 2rem; border: 2px solid var(--accent-blue);">👩‍💻</div>
+                    <h3>Elisha Danielle Johnson</h3>
+                    <p class="highlight" style="margin-bottom: 0.5rem; font-weight: 600;">Machine Learning Developer</p>
+                    <p style="font-size: 0.95rem;">Developing the AI data interpreter and pattern prediction models for collision and congestion forecasting.</p>
+                </div>
+
+                <div class="card" style="text-align: center;">
+                    <div style="width: 80px; height: 80px; border-radius: 50%; background-color: var(--bg-dark); margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 2rem; border: 2px solid var(--accent-blue);">👩‍💻</div>
+                    <h3>Maryam Muhammad Yaqoob</h3>
+                    <p class="highlight" style="margin-bottom: 0.5rem; font-weight: 600;">Simulation API Dashboard Developer</p>
+                    <p style="font-size: 0.95rem;">Building the FastAPI backend endpoints to connect the simulation core to the web client.</p>
+                </div>
+
+                <div class="card" style="text-align: center;">
+                    <div style="width: 80px; height: 80px; border-radius: 50%; background-color: var(--bg-dark); margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 2rem; border: 2px solid var(--accent-blue);">👨‍💻</div>
+                    <h3>Mvansh Kanojia</h3>
+                    <p class="highlight" style="margin-bottom: 0.5rem; font-weight: 600;">Vehicle Network Platform Developer</p>
+                    <p style="font-size: 0.95rem;">Implementing the V2X communication layers and networking protocols within the simulation environment.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const stats = document.querySelectorAll('.stat-number');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        stats.forEach(stat => {
+            stat.style.opacity = 0;
+            stat.style.transform = 'translateY(20px)';
+            stat.style.transition = 'all 0.6s ease-out';
+            observer.observe(stat);
+        });
+    </script>
+</body>
+</html>
