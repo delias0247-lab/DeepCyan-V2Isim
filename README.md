@@ -75,11 +75,11 @@ The uploaded READMEs describe `backend/`, `Map1` to `Map5`, and `outputs/` as th
 
 ### 2. Q-Learning Control
 
-`traci6.QL.py` uses a tabular Q-learning approach to observe traffic conditions, choose actions with an epsilon-greedy strategy, and update a Q-table during simulation. The earlier README explains the Q-learning design in terms of state, action, and reward based on queue lengths and current signal phases.
+`traci6.QL.py` uses a tabular Q-learning approach to observe traffic conditions, choose actions with an epsilon-greedy strategy, and update a Q-table during simulation. 
 
 ### 3. Deep Q-Learning Control
 
-`traci7.DQL.py` extends the approach by using a neural network instead of only a Q-table. This model typically requires extra dependencies such as TensorFlow, which is why the dashboard README separates its installation requirements. 
+`traci7.DQL.py` extends the approach by using a neural network instead of only a Q-table. This model typically requires extra dependencies such as TensorFlow,
 
 ---
 
@@ -129,7 +129,7 @@ Then open:
 
 - **Python 3.x**
 - **SUMO 1.25.0** or a compatible SUMO installation
-- **Netedit ** or a compatible Netedit installation
+- **Netedit** or a compatible Netedit installation
 - **FastAPI / Uvicorn** for the dashboard
 - **TraCI** through the SUMO tools path
 
@@ -168,7 +168,6 @@ $env:SUMO_HOME="C:\Program Files (x86)\Eclipse\Sumo"
 set SUMO_HOME=C:\Program Files (x86)\Eclipse\Sumo
 ```
 
-The uploaded READMEs both mention this requirement and provide the same style of installation path. fileciteturn0file0L123-L137 fileciteturn0file1L24-L28
 
 ### 2. Confirm SUMO executables
 
@@ -206,7 +205,7 @@ Before running on a new machine, check:
 
 ## Random Traffic Generation
 
-Traffic demand can be generated with `randomTrips.py`. The earlier README provides a sample command that produces both a trip file and a route file used by SUMO. fileciteturn0file0L138-L161
+Traffic demand can be generated with `randomTrips.py`. 
 
 Example:
 
@@ -221,8 +220,7 @@ Example:
 
 ### Important note
 
-If you reuse the same generated route file, the traffic demand remains the same across runs. If you regenerate it before each run, traffic demand changes from run to run. This behavior is described in the earlier README. fileciteturn0file0L148-L161
-
+If you reuse the same generated route file, the traffic demand remains the same across runs. If you regenerate it before each run, traffic demand changes from run to run. 
 ---
 
 ## How to Run the Project
@@ -230,18 +228,11 @@ If you reuse the same generated route file, the traffic demand remains the same 
 ### Option 1: Run from the dashboard
 
 ```powershell
-cd C:\Users\Edawi\OneDrive\Desktop\work\backend
+cd C:\PATH\
 .venv\Scripts\activate
 python -m uvicorn main:app --reload
 ```
 
-Open:
-
-```text
-http://127.0.0.1:8000/
-```
-
-Then choose a map and one of the available models. fileciteturn0file1L11-L16 fileciteturn0file1L23-L35
 
 ### Option 2: Run a script directly
 
@@ -252,8 +243,6 @@ Example:
 ```bat
 python traci5.FT.py
 ```
-
-The earlier README shows this style of execution for the SUMO model scripts. fileciteturn0file0L162-L174
 
 ---
 
@@ -305,8 +294,6 @@ Usually caused by:
 ### `peer shutdown`
 
 Usually means SUMO closed because of an earlier error. The TraCI disconnect is often a secondary symptom rather than the main problem.
-
-These troubleshooting points are directly summarized from the earlier README. fileciteturn0file0L199-L236
 
 ---
 
